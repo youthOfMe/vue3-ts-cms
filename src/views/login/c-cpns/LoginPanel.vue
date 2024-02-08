@@ -7,6 +7,7 @@
         <el-tab-pane name="account">
           <template #label>
             <div class="label">
+              <el-icon> </el-icon>
               <span>账号登录</span>
             </div>
           </template>
