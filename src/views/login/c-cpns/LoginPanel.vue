@@ -7,8 +7,10 @@
         <el-tab-pane name="account">
           <template #label>
             <div class="label">
-              <el-icon> </el-icon>
-              <span>账号登录</span>
+              <el-icon>
+                <UserFilled />
+              </el-icon>
+              <span class="text">账号登录</span>
             </div>
           </template>
           <pane-account></pane-account>
@@ -17,7 +19,10 @@
         <el-tab-pane name="phone">
           <template #label>
             <div class="label">
-              <span>手机登录</span>
+              <el-icon>
+                <Cellphone />
+              </el-icon>
+              <span class="text">手机登录</span>
             </div>
           </template>
           <pane-phone></pane-phone>
@@ -37,6 +42,7 @@ import { ref } from 'vue'
 // 引入不同登录方式组件
 import PaneAccount from './PaneAccount.vue'
 import PanePhone from './PanePhone.vue'
+import type { Cellphone } from '@element-plus/icons-vue'
 
 // 配置是否记住密码
 const isRemPwd = ref(false)
