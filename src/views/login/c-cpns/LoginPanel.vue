@@ -2,12 +2,19 @@
   <div class="login-panel">
     <h1 class="title">网易云后台管理系统</h1>
     <div class="tabs"></div>
-    <div class="controls"></div>
+    <div class="controls">
+      <el-checkbox v-model="isRemPwd" label="记住密码" type="large"></el-checkbox>
+      <el-link type="primary">忘记密码</el-link>
+    </div>
     <el-button class="login-btn"> 立即登录 </el-button>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isRemPwd = ref(false)
+</script>
 
 <style scoped lang="less">
 .login-panel {
