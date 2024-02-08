@@ -1,8 +1,12 @@
 <template>
-  <div class="login">Login登录页面</div>
+  <div class="login">
+    <LoginPanel />
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LoginPanel from './c-cpns/LoginPanel.vue'
+</script>
 
 <style scoped>
 .login {
