@@ -14,6 +14,7 @@ import { reactive, ref } from 'vue'
 
 // 引入校验规则对象的类型
 import type { FormRules, ElForm } from 'element-plus'
+import { ElMessage } from 'element-plus'
 
 // 1. 定义account数据
 const account = reactive({
@@ -40,7 +41,7 @@ function loginAction() {
     if (valid) {
       console.log('校验成功')
     } else {
-      console.log('校验失败')
+      ElMessage.error('请您输入正确的格式后再进行操作')
     }
   })
 }
