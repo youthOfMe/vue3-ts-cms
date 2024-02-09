@@ -1,5 +1,5 @@
 <template>
-  <el-form label-width="80px" status-icon :model="account" :rules="accountRules">
+  <el-form label-width="80px" status-icon :model="account" :rules="accountRules" ref="formRef">
     <el-form-item label="Username" prop="name">
       <el-input v-model="account.name" />
     </el-form-item>
@@ -10,10 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 // 引入校验规则对象的类型
-import type { FormRules } from 'element-plus'
+import type { FormRules, ElForm } from 'element-plus'
 
 // 1. 定义account数据
 const account = reactive({
@@ -32,6 +32,22 @@ const accountRules: FormRules = {
     { min: 3, message: '必须是3位以上的数字和密码组成', trigger: 'change' },
   ],
 }
+
+// 3. 执行账号的登录逻辑
+const formRef = ref<InstanceType<typeof ElForm>>()
+function loginAction() {
+  formRef.value?.validate((valid) => {
+    if (valid) {
+      console.log('校验成功')
+    } else {
+      console.log('校验失败')
+    }
+  })
+}
+
+defineExpose({
+  loginAction,
+})
 </script>
 
 <style scoped></style>
