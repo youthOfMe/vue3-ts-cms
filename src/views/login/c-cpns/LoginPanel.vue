@@ -13,7 +13,7 @@
               <span class="text">账号登录</span>
             </div>
           </template>
-          <pane-account></pane-account>
+          <pane-account ref="accountRef"></pane-account>
         </el-tab-pane>
         <!-- 2. 手机登录的Pane test -->
         <el-tab-pane name="phone">
@@ -33,7 +33,7 @@
       <el-checkbox v-model="isRemPwd" label="记住密码" type="large"></el-checkbox>
       <el-link type="primary">忘记密码</el-link>
     </div>
-    <el-button class="login-btn"> 立即登录 </el-button>
+    <el-button class="login-btn" @click="handleLoginBtnClick"> 立即登录 </el-button>
   </div>
 </template>
 
@@ -48,6 +48,17 @@ import type { Cellphone } from '@element-plus/icons-vue'
 const isRemPwd = ref(false)
 // 配置切换登录方式状态
 const activeName = ref('account')
+// 获取子组件实例
+const accountRef = ref<InstanceType<typeof PaneAccount>>()
+
+function handleLoginBtnClick() {
+  if (activeName.value === 'account') {
+    // 使用子组件暴露过来的登录回调
+    accountRef.value?.loginAction()
+  } else {
+    console.log('用户在进行手机登录')
+  }
+}
 </script>
 
 <style scoped lang="less">
