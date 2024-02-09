@@ -15,7 +15,7 @@
           </template>
           <pane-account></pane-account>
         </el-tab-pane>
-        <!-- 2. 手机登录的Pane -->
+        <!-- 2. 手机登录的Pane test -->
         <el-tab-pane name="phone">
           <template #label>
             <div class="label">
